@@ -1,12 +1,20 @@
+import { PositiveIntPipe } from 'src/pipes/positiveInt.pipe';
 import { BloxxomService } from './bloxxom.service';
-import { Body, Controller, Get, Patch, Post, Put } from '@nestjs/common';
-
+import {
+  Controller,
+  Get,
+  Patch,
+  Post,
+  Put,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 @Controller('bloxxom')
 export class BloxxomController {
   constructor(private readonly bloxxomService: BloxxomService) {}
 
-  @Get()
-  getAllInfos() {
+  @Get(':id')
+  getAllInfos(@Param('id', ParseIntPipe, PositiveIntPipe) param: number) {
     return 'all info';
   }
 
