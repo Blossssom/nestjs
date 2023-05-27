@@ -8,8 +8,11 @@ import {
   Put,
   Param,
   ParseIntPipe,
+  UseInterceptors,
 } from '@nestjs/common';
+import { SuccessInterceptor } from 'src/success.interceptor';
 @Controller('bloxxom')
+@UseInterceptors(SuccessInterceptor)
 export class BloxxomController {
   constructor(private readonly bloxxomService: BloxxomService) {}
 
