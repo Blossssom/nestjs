@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { CatsModule } from './cats/cats.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -16,6 +17,7 @@ import { CatsModule } from './cats/cats.module';
     BloxxomModule,
     UsersModule,
     CatsModule,
+    AuthModule,
   ],
   providers: [BloxxomService],
 })
