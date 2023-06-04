@@ -21,4 +21,9 @@ export class CatsRepository {
     const result = await this.catModel.create(userInfo);
     return result;
   }
+
+  async findByEmail(email: string): Promise<Cat | null> {
+    const cat = await this.catModel.findOne({ email });
+    return cat;
+  }
 }
